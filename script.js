@@ -34,11 +34,15 @@ function drawEverything() {
 
     canvasContext.fillStyle = 'white';
     canvasContext.fillRect(0,0,canvas.width,canvas.height);
+    canvasContext.fillStyle = 'red';
+    canvasContext.fillRect(canvas.width/2,canvas.height/2,10,10);
     canvasContext.fillStyle = 'green';
     canvasContext.fillRect(ballx,230,10,10);
     
 }
 
-// function createSecondBox(){
+//  function createSecondBox(){
+//     canvasContext.fillStyle = 'red';
+//     canvasContext.fillRect(0,0,30,30);
     
-// }
+//  }
