@@ -3,6 +3,8 @@ var canvasContext;
 var ballx = 50;
 var bally = 50;
 var ballspeedx = 15;
+var myTarget, myCanvas;
+let elem;
 
 // function calculateMousePos(evt) {
 //     var rect = canvas.getBoundingClientRect();
@@ -17,6 +19,7 @@ var ballspeedx = 15;
 
 window.onload = function(){
     canvas = document.getElementById('gameCanvas');
+    elem = document.getElementById('snake');
     canvasContext = canvas.getContext('2d');
 
     var framesPerSecond = 30;
@@ -27,18 +30,38 @@ window.onload = function(){
     canvasContext.fillStyle = 'green';
     canvasContext.fillRect(ballx,230,10,10);
 
-    // canvas.addEvventListener('keydown', function(evt){
+snake.addEventListener('keydown', function(e) {
+    switch (e.keyCode) {
+        case 37:
+            alert('left');
+            break;
+        case 38:
+           alert('up');
+            break;
+        case 39:
+            alert('right');
+            break;
+        case 40:
+            alert('down');
+            break;
+    }
+}, false);
 
-    // });
 
         
 }
 
-function ballReset(){
-    ballspeedx = -ballspeedx;
-    ballx = canvas.width/2;
-    bally = canvas.height/2;
-}
+// function moveSnake(){
+//     canvas.addEventListener('keydown', function(event) {
+//         alert('keydown');
+//             }, false);
+// });
+// }
+
+// function ballReset(){
+//     ballx = canvas.width/2;
+//     bally = canvas.height/2;
+// }
 
 
 
@@ -46,12 +69,12 @@ function ballReset(){
 function moveEverything(){
     ballx = ballx + ballspeedx;
     if(ballx < 0){
-        ballReset();
-        
+        ballspeedx = -ballspeedx;
         // alert("Hit wall")
+        // ballReset();
     }
     if(ballx > canvas.width){
-        //ballspeedx = -ballspeedx;
+        ballspeedx = -ballspeedx;
         // alert("Hit wall")
 
     }
@@ -66,11 +89,6 @@ function moveEverything(){
 
 }
 
-function render() {
-    canvas.context.clearRect(0, 0, WIDTH, HEIGHT);
-    canvas.context.fillStyle = 'purple';
-    canvas.context.fillRect(0, 300, 20, 20);
-}
 
 function drawEverything() {
 
@@ -84,7 +102,7 @@ function drawEverything() {
 
     //put below in for loop (i.e. )
     canvasContext.fillStyle = 'green';
-    canvasContext.fillRect(ballx,266,10,10);
+    canvasContext.fillRect(200,266,10,10);
     canvasContext.fillStyle = 'green';
     canvasContext.fillRect(200,254,10,10);
     canvasContext.fillStyle = 'green';
